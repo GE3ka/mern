@@ -33,29 +33,29 @@ function App() {
         <div>  
           <label>First Name:</label>
           <input type='text' onChange  ={ (e) =>setFirstname(e.target.value)} value={firstname}/>
-          {firstname.length <=2  ? <p style={{color:"red"}}> First Name must be at least 2 characters</p> : ""}
+          {firstname.length <=2 &&  firstname.length!= 0  ? <p style={{color:"red"}}> First Name must be at least 2 characters</p> : ""}
         </div>  
         <div>
           <label>Last Name:</label>
           <input type='text' onChange  ={ (e) =>setLastname(e.target.value)} value={lastname}/>
-          {lastname.length <=2  ? <p style={{color:"red"}}> Last Name must be at least 2 characters</p> : ""}
+          {lastname.length <=2 && lastname.length != 0 ? <p style={{color:"red"}}> Last Name must be at least 2 characters</p> : ""}
         </div>
         <div>  
           
           <label>Email:</label>
           <input type='text' onChange  ={ (e) =>setEmail(e.target.value)} value={email}/>
-          {email.length <=5  ? <p style={{color:"red"}}> Email must be at least 5 character</p> : ""}
+          {email.length <=5  && email.length != 0? <p style={{color:"red"}}> Email must be at least 5 character</p> : ""}
         </div>
         <div>  
           <label>Password</label>
           <input type='password' onChange  ={ (e) =>setPassword(e.target.value)} value={password}/>
-          {password.length <=8  ? <p style={{color:"red"}}> Password must be at least 8 character</p> : ""}
+          {password.length <=8 && password.length != 0 ? <p style={{color:"red"}}> Password must be at least 8 character</p> : ""}
 
         </div> 
         <div> 
           <label>Confirm Password</label>
           <input type='password' onChange  ={ (e) =>setConfirmpassword(e.target.value)} value={confirmpassword}/>
-          {password != confirmpassword  ? <p style={{color:"red"}}> Passwords must match</p> : ""}
+          {password != confirmpassword && confirmpassword.length != 0 ? <p style={{color:"red"}}> Passwords must match</p> : ""}
 
         </div>
           <button type='submit'>Add User</button>
