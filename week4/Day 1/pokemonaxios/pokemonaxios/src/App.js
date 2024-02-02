@@ -6,7 +6,7 @@ function App() {
             axios.get('https://pokeapi.co/api/v2/pokemon/') // req Get
           .then(res => {
             //! axios wraps the res in it's own .data key
-            setPokemons([res.data.results])           
+            setPokemons([res.data.results][0])           
           })
           .catch(err => {
               console.log(err)
