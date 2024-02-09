@@ -7,7 +7,7 @@ function App() {
       const[email,setEmail]=useState("");
       const[password,setPassword]=useState("");
       const[confirmpassword,setConfirmpassword]=useState("");
-
+      const [isValid,setIsValid]=useState(True)
       const [allUsers,setAllUsers]=useState([]);
       const createUser = (e)=>{
         e.preventDefault()
@@ -23,6 +23,7 @@ function App() {
       setEmail("");
       setPassword("");
       setConfirmpassword("");  
+      
       setAllUsers([...allUsers,newUser]);
       console.log(allUsers)
 
@@ -33,8 +34,8 @@ function App() {
         <div>  
           <label>First Name:</label>
           <input type='text' onChange  ={ (e) =>setFirstname(e.target.value)} value={firstname}/>
-          {firstname.length <=2 &&  firstname.length!= 0  ? <p style={{color:"red"}}> First Name must be at least 2 characters</p> : ""}
-        </div>  
+          {firstname.length <=2 &&  firstname.length!= 0  ? {{ setIsValid(False)}} <p style={{color:"red"}}> First Name must be at least 2 characters</p> : ""}
+        </div>  console.log(isValid)
         <div>
           <label>Last Name:</label>
           <input type='text' onChange  ={ (e) =>setLastname(e.target.value)} value={lastname}/>
