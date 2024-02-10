@@ -2,7 +2,8 @@ import './App.css';
 import { Link, Route, Routes } from 'react-router-dom';
 import Create from './components/Create';
 import Display from './components/Display';
-import OneProduct from './components/OneProduct'
+import OneProduct from './components/OneProduct';
+import Edit from './components/Edit'
 function App() {
   return (
     <div className="App">
@@ -15,7 +16,10 @@ function App() {
         <Route path="/" element={<Display />} />
         <Route path="/products/create" element={<Create />} />
         <Route path="/products/:id" element={<OneProduct />} />
+        <Route path="/products/edit/:id" element={<Edit />} />
       </Routes>
+
+
 
 
     </div>

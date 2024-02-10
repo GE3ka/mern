@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom'
 const Display = () => {
 
     const [products, setProducts] = useState([])
-                                        
-    
+ 
     useEffect(() => {
         axios.get("http://localhost:5000/api/products/")
             .then(res => {
@@ -18,6 +17,21 @@ const Display = () => {
         })
         
     },[])
+    const deleteProduct = (deleteId) => {
+        axios.delete("http://localhost:5000/api/products/" + deleteId)
+            .then(res => {
+            const filteredProducts = products.filter((oneProduct) => {
+                    return oneProduct._id !== deleteId
+            })
+            setProducts(filteredProducts)
+            })
+
+            .catch(err => {
+                console.log(err)
+            })
+        
+    }                                    
+    
     return (
         <div>
             {
@@ -28,17 +42,17 @@ const Display = () => {
                                 <p>Title: {oneProduct.title}</p>
                             </Link>
                             <p>Price: {oneProduct.price} €</p>
-                            <p>Description: {oneProduct.price} </p>
-                            
+                            <p>Description: {oneProduct.description} </p>
+                            <Link to={`/products/edit/${oneProduct._id}`}>Edit</Link> 
+                            <br/>    
+                            <button onClick={() => { deleteProduct(oneProduct._id) }}>Delete</button>
                             <hr/>
                         </div>
                     )
                 })
             }
-
-
     </div>
-  )
+    )
 }
 
 export default Display

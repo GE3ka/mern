@@ -30,6 +30,15 @@ module.exports.findOneProduct = (req, res) => {
             res.json(err)
         })
 }
+module.exports.editProduct = (req, res) => {
+    Product.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, runValidators: true })
+        .then(editProduct => {
+            res.status(200).json(editProduct)
+        })
+        .catch(err => {
+            res.status(400).json(err)
+        })
+}
 module.exports.deleteAnExistingProduct = (req, res) => {
     Product.deleteOne({ _id: req.params.id })
         .then(result => {
