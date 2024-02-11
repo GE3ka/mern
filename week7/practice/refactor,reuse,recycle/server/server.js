@@ -5,8 +5,8 @@ const cors = require("cors")
 
 
 //---MIDDLEWARE ---
-app.use(express.json(), express.urlencoded({ extended: true }), cors())
-
+app.use(express.json(), express.urlencoded({ extended: true }))
+app.use (cors())
 require("dotenv").config()
 require("./config/mongoose.config")
 

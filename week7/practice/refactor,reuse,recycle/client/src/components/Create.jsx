@@ -7,15 +7,14 @@ const Create = (props) => {
     
   
     const createProduct = (product) => {
-        const { title, price, description } = product;
-            axios.post("http://localhost:8000/api/products", {
-            title,
-            price,
-            description,
-          })
-          
-          .catch((err) => console.log(err));
-      };
+        const newProduct= product;
+            axios.post("http://localhost:5000/api/products",newProduct)
+            .then(res => {
+                console.log("✅✅✅✅✅", res.data)
+                nav("/")
+            })
+            .catch((err) => console.log(err));
+        };
 
 
     return (

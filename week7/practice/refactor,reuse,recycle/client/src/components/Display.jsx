@@ -5,18 +5,20 @@ import DeleteButton from "./DeleteButton";
 const Display = () => {
 
     const [products, setProducts] = useState([])
+    const [reload, setReload]=useState(false )
     const nav = useNavigate();
     useEffect(() => {
         axios.get("http://localhost:5000/api/products/")
             .then(res => {
                 console.log(res.data)
                 setProducts(res.data)
+                
             })
             .catch((err) => {
             console.log(err)
         })
         
-    },[])
+    },[!reload])
                                     
     
     return (
@@ -32,8 +34,13 @@ const Display = () => {
                             <p>Description: {oneProduct.description} </p>
                             <Link to={`/products/edit/${oneProduct._id}`}>Edit</Link> 
                             <br/>    
-                            {console.log("hani fi display ",oneProduct._id)}
-                            <DeleteButton id={oneProduct._id} deleteCallBack={() => setTimeout(() => nav("/"), 1)}/>
+                            
+                            <DeleteButton id={oneProduct._id} 
+                                deleteCallBack={
+                                                () => {setTimeout(() => nav("/"), 500)
+                                                        setReload(!reload)
+                                                    }
+                            }/>
                             <hr/>
                         </div>
                     )
