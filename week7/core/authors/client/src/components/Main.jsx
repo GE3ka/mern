@@ -13,7 +13,7 @@ const Main = () => {
                                  
     
     useEffect(() => {
-        axios.get("http://localhost:5000/api/authors/")
+        axios.get("http://localhost:5000/api/authors")
             .then(res => {
                 console.log(res.data)
                 setAuthors(res.data)
@@ -46,7 +46,7 @@ const Main = () => {
                         <Col className="d-grid gap-2"><h3  style={{ color:"teal "}}>We have quotes by: </h3></Col>
                         <Col className="d-grid gap-2">
                             <h3>
-                                <Link to={"/authors/create"} style={{ color:"teal " , textDecoration: 'none'}}> Add a new author</Link>
+                                <Link to={"/authors/new"} style={{ color:"teal " , textDecoration: 'none'}}> Add a new author</Link>
                             </h3>
                         </Col>
                     </Row>

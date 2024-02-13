@@ -24,7 +24,7 @@ function App() {
               
               <Route path="/" element={<Main/>} />            
               <Route path="/authors/:id" element={<OneAuthor/>} />
-              <Route path="/authors/create" element={<Create />} />
+              <Route path="/authors/new" element={<Create />} />
               <Route path="/authors/:id/edit" element={<Update />} />
           </Routes>
             

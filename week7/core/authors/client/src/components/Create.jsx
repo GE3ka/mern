@@ -10,7 +10,7 @@ const Create = (props) => {
   
     const createAuthor = (author) => {
         const newAuthor= author;
-            axios.post("http://localhost:5000/api/authors",newAuthor)
+            axios.post("http://localhost:5000/api/authors/new",newAuthor)
             .then(res => {
                 console.log("✅✅✅✅✅", res.data)
                 nav("/")
