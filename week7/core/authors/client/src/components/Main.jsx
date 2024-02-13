@@ -27,7 +27,7 @@ const Main = () => {
         axios.delete("http://localhost:5000/api/authors/" + deleteId)
             .then(res => {
         //----------------
-            console.log("OK this Movie has been Deleted ☠️" , res.data)
+            console.log("OK this author has been Deleted ☠️" , res.data)
             const filteredAuthors = authors.filter((eachAuthor) => {
                     return eachAuthor._id !== deleteId
             })
@@ -63,7 +63,7 @@ const Main = () => {
         <tbody>
           { 
             
-                authors.map((oneAuthor) => {
+                authors.map((oneAuthor, index) => {
                   return (
                     
                     <tr>
@@ -72,7 +72,7 @@ const Main = () => {
                             {oneAuthor.name}
                         </Link>
                         </td>
-                        <td  key={oneAuthor._id+1}>
+                        <td  key={index}>
                         
                         <Container fluid="md"   >
                             <Row>

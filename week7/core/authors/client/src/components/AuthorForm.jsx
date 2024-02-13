@@ -4,9 +4,9 @@ import Button from 'react-bootstrap/Button';
 
 const AuthorForm = (props) => {
     const [author, setAuthor] = useState(props.authorDetails);
-
+    const errors = props.errors;
     useEffect(() => setAuthor(props.authorDetails), [props.authorDetails]);
-    
+     
     const handleSubmit = (e) => {
     e.preventDefault();
         
@@ -24,7 +24,11 @@ const AuthorForm = (props) => {
                     value={author.name}  
                     onChange ={(e)=>{ setAuthor({ ...author, [e.target.name]: e.target.value })} }           
                     />
-                    <Form.Text   muted>The name must contain at least 3 chars </Form.Text>
+                     {errors.map((err, index) => (                        
+                            <Form.Text  key={index}  muted>{err} </Form.Text>
+                                          
+                     ))}
+                    
                     <br/><br/>
                     <div  className="d-grid gap-2">
                         <Button type="submit"   variant="secondary" size="lg">{props.submitValue}  </Button>
